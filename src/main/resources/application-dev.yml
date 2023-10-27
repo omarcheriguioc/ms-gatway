@@ -1,0 +1,15 @@
+keycloak:
+  Jwk-uri: http://localhost:8082/realms/demo-webflux/protocol/openid-connect/certs
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: products_route
+          uri: http://localhost:9091
+          predicates:
+            - Path=/products/**
+        - id: posts_route
+          uri: http://localhost:9092
+          predicates:
+            - Path=/posts/**

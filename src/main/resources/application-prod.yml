@@ -1,0 +1,15 @@
+keycloak:
+  Jwk-uri: http://keycloak:8080/realms/demo-webflux/protocol/openid-connect/certs
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: products_route
+          uri: http://ms-crud-products:9091
+          predicates:
+            - Path=/products/**
+        - id: posts_route
+          uri: http://ms-crud-posts:9092
+          predicates:
+            - Path=/posts/**
