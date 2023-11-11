@@ -1,5 +1,5 @@
 keycloak:
-  Jwk-uri: http://keycloak:8080/realms/demo-webflux/protocol/openid-connect/certs
+  Jwk-uri: http://keycloak:8080/realms/tuto-webflux/protocol/openid-connect/certs
 
 spring:
   cloud:

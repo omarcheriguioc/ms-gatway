@@ -20,7 +20,8 @@ public class SecurityConfig {
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
         http
                 .authorizeExchange(authorizeExchangeSpec ->
-                        authorizeExchangeSpec.anyExchange().authenticated()
+                        authorizeExchangeSpec.pathMatchers("/public/**").permitAll()
+                        .anyExchange().authenticated()
                 ).oauth2ResourceServer(oauth2 -> oauth2.jwt(jwtSpec -> jwtSpec.jwtDecoder(jwtDecoder())));
         return http.build();
     }
